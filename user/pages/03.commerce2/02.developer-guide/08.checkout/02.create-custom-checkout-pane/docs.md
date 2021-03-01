@@ -209,6 +209,10 @@ public function submitPaneForm(array &$pane_form, FormStateInterface $form_state
   $this->order->setData('order_comment', $values['comment']);
 }
 ```
+Note: only use setData doesn't diplay the field in order commerce-order--user.html.twig or commerce-order--admin.html.twig, please save it also with 
+```php
+$this->order->set("your_field_machien_name", $values['comment']);
+```
 
 After saving the comment to the order, you can access the comment value using the Commerce order `getData()` method with the *key* value we used in `submitPaneForm()`, "order_comment":
 
